@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
+    public Image HP; 
+    public float HPWidth;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed = 8f;
     [SerializeField] private float jumpingPower = 16f;
@@ -13,6 +16,12 @@ public class PlayerScript : MonoBehaviour
     private float horizontal;
     private bool isFacingRight = true;
     public Animator animator;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        HPWidth = HP.rectTransform.rect.width;
+    }
 
     // Update is called once per frame
     void Update()
@@ -53,6 +62,17 @@ public class PlayerScript : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        if(health>0)
+        {
+            health -= amount;
+            HPWidth -= amount;
+            Vector2 temp = new Vector2(HPWidth, HP.rectTransform.rect.height);
+            HP.rectTransform.sizeDelta = temp;
         }
     }
 
