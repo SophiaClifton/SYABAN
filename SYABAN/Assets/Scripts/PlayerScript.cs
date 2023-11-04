@@ -29,14 +29,14 @@ public class PlayerScript : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
 
-
+      
 
 
     }
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y); //movement left and right
+         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y); //movement left and right
     }
 
     private bool IsGrounded()
