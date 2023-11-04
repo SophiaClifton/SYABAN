@@ -11,7 +11,9 @@ public class CameraScript : MonoBehaviour
     // LateUpdate is called once per frame after thre last Update
     void FixedUpdate()
     {
+       
         Vector3 newPos = new Vector3(character.position.x, cameraHeight, -10f);
+        //transform.position = newPos;
         transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
     }
 }
