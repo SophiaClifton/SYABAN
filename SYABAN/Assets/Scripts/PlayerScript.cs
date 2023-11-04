@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,10 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private LayerMask blockingLayer;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float health;
+    [SerializeField] public Transform firepoint;
+
+    public bool HasStamina = true;
+    public GameObject bullet;
     private float horizontal;
     private bool isFacingRight = true;
     public Animator animator;
@@ -38,8 +43,10 @@ public class PlayerScript : MonoBehaviour
         }
 
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-
-      
+        if (Input.GetButtonDown("Fire1") && HasStamina)
+        {
+            AttackPewPew();
+        }
 
 
     }
@@ -62,6 +69,7 @@ public class PlayerScript : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+            firepoint.transform.Rotate(0, -180, 0);
         }
     }
 
@@ -74,6 +82,14 @@ public class PlayerScript : MonoBehaviour
             Vector2 temp = new Vector2(HPWidth, HP.rectTransform.rect.height);
             HP.rectTransform.sizeDelta = temp;
         }
+    }
+
+    public void AttackPewPew()
+    {
+        Debug.Log("Attack point reached");
+        GetComponent<Animator>().Play("AmitouShoot", 0, 0f);
+        Instantiate(bullet, firepoint.position,firepoint.rotation);
+     
     }
 
 }
