@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float jumpingPower = 16f;
     [SerializeField] private LayerMask blockingLayer;
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private float health;
     private float horizontal;
     private bool isFacingRight = true;
     public Animator animator;
@@ -41,7 +42,7 @@ public class PlayerScript : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, blockingLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.1f, blockingLayer);
     }
 
     private void Flip()

@@ -5056,6 +5056,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4a824171d7bbda140a15125890df5114, type: 3}
+    - target: {fileID: 6485848808229639668, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8b570259c9c9b914ab0ebdee4aee0608, type: 2}
     - target: {fileID: 8668345230252256201, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: m_Name
       value: Player
