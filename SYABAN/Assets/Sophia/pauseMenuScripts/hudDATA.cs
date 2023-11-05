@@ -6,4 +6,9 @@ using UnityEngine;
 public class hudDATA : ScriptableObject
 {
     public bool active = false;
+
+    public void Start ()
+    {
+        active = false;
+    }
 }
