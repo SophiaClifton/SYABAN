@@ -11,14 +11,17 @@ public class InteractableButton : Interactable
     {
     }
 
+    private bool isWaiting = false;
     private bool isActive = false;
 
     public override void Interact() {
+        GetComponent<SpriteRenderer>().sprite = activeSprite;
         linkedObstacle.Activate();
         StartCoroutine(wait(true));
     }
 
     public override void StopInteract() {
+        GetComponent<SpriteRenderer>().sprite = inactiveSprite;
         linkedObstacle.Deactivate();
         StartCoroutine(waitMore());
         stopInteract = false;
@@ -29,6 +32,7 @@ public class InteractableButton : Interactable
     {
         if (interact) {
             interact = false;
+            StopAllCoroutines();
             Interact();
         }
         if (stopInteract) {
@@ -44,6 +48,10 @@ public class InteractableButton : Interactable
 
     IEnumerator waitMore()
     {
+        isWaiting = true;
+        yield return new WaitForSeconds(2);  
+        isWaiting = false;
+        GetComponent<SpriteRenderer>().sprite = inactiveSprite;
         yield return new WaitForSeconds(3);  
     }
 }
