@@ -22,6 +22,7 @@ public class Door : Obstacle
     {
         doorCollider = GetComponent<BoxCollider2D>();
         doorRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
         inactivePos = transform.position;
         activePos = new Vector3(transform.position.x + activeXIncrease, transform.position.y + activeYIncrease, transform.position.z);
     }
@@ -49,6 +50,8 @@ public class Door : Obstacle
         Debug.Log("Activated");
 
         active = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(activateSound);
         reachedDestination = false;
     }
 
@@ -57,6 +60,8 @@ public class Door : Obstacle
         Debug.Log("Deactivated");
 
         active = false;
+        audioSource.Stop();
+        audioSource.PlayOneShot(deactivateSound);
         reachedDestination = false;
     }
 }

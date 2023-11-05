@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,6 +33,9 @@ public class PlayerScript : MonoBehaviour
     private bool isFacingRight = true;
     public Animator animator;
     private bool hasStamina = true;//use for determining if player can shoot /hit
+
+    public bool isWalking;
+    public bool IsWalking { get { return isWalking; } }
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +79,12 @@ public class PlayerScript : MonoBehaviour
             {
                 animator.SetBool("IsSlashing", false);
             }
+        }
+
+        if (IsGrounded() && math.abs(rb.velocity.x) > 0.05f) {
+            isWalking = true;
+        } else {
+            isWalking = false;
         }
     }
 
