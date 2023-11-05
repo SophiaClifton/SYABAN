@@ -9,7 +9,7 @@ public class door3Script : MonoBehaviour
     public GameObject obj02;
     public GameObject obj12;
     private bool isInteracting = false;
-    public hudDATA hudData;
+    //public hudDATA hudData;
     int purplekeys = KeyManager.Instance.purplekeyCount;
     int greenkeys = KeyManager.Instance.greenkeyCount;
 
@@ -47,10 +47,9 @@ private void OnTriggerExit2D(Collider2D collision)
 
 private void Update()
 {
-    if (isInteracting && Input.GetKeyDown(KeyCode.E) && hudData.level1complete && hudData.level2complete)
+    if (isInteracting && Input.GetKeyDown(KeyCode.E) && purplekeys>=1 &&greenkeys>=1)
     {
-        Debug.Log("levelpurple");
-        SceneManager.LoadScene("LevelPurple");
+        SceneManager.LoadScene("EndingScene");
     }
 }
 
