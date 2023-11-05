@@ -5,10 +5,6 @@ using UnityEngine;
 public class Lever : Interactable
 {
     bool activated = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     public override void Interact() {
         if (!activated) {

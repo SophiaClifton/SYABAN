@@ -14,21 +14,23 @@ public class PlayerInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Interact")) {
+        if (Input.GetKeyDown(KeyCode.E)) {
             if (triggeredInteractable != null) {
                 triggeredInteractable.GetComponent<Interactable>().Interact();
             }
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.gameObject.name);
         Interactable temp = other.gameObject.GetComponent<Interactable>();
         if (temp != null) {
             triggeredInteractable = other.gameObject;
         }
     }
 
-    private void OnTriggerExit(Collider other) {
+    private void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject == triggeredInteractable) {
             triggeredInteractable = null;
         }
