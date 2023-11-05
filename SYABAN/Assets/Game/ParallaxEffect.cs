@@ -32,14 +32,14 @@ namespace _Scripts
 
             transform.position = NewPosition;
 
-            if (Temp > _startingPos + (_lengthOfSprite / 2))
-            {
-                _startingPos += _lengthOfSprite;
-            }
-            else if (Temp < _startingPos - (_lengthOfSprite / 2))
-            {
-                _startingPos -= _lengthOfSprite;
-            }
+            //if (Temp > _startingPos + (_lengthOfSprite / 2))
+            //{
+            //    _startingPos += _lengthOfSprite;
+            //}
+            //else if (Temp < _startingPos - (_lengthOfSprite / 2))
+            //{
+            //    _startingPos -= _lengthOfSprite;
+            //}
 
             //if (MainCamera.transform.position.x >= transform.position.x + _lengthOfSprite) {
             //    transform.position = new Vector3(transform.position.x + _lengthOfSprite * 2, transform.position.y, transform.position.z);

@@ -13,5 +13,6 @@ public class CameraScript : MonoBehaviour
     {
         Vector3 newPos = new Vector3(character.position.x, cameraHeight, -10f);
         transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
+        transform.position = new Vector3(Mathf.Round(transform.position.x * 100)/100, Mathf.Round(transform.position.y * 100)/100, Mathf.Round(transform.position.z * 100)/100);
     }
 }
