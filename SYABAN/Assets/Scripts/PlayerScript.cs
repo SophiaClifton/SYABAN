@@ -34,7 +34,7 @@ public class PlayerScript : MonoBehaviour
     private bool hasStamina = true;//use for determining if player can shoot /hit
 
     public bool coroutineStarted;
-
+    public bool isJumping;
     // Start is called before the first frame update
     void Start()
     {
