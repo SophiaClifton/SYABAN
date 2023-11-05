@@ -7,10 +7,12 @@ public class startButton : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject pauseButton;
+    public hudDATA hudData;
     public void startGame()
     {
         mainMenu.SetActive(false);
         pauseButton.SetActive(true);
         Time.timeScale = 1f;
+        hudData.active = true;
     }
 }

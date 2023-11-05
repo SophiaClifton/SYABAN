@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     private float thrust = 4f;
     public Animator animator;
     public int health = 100;
+    public hudDATA hudData;
     
     // Start is called before the first frame update
     void Start()
@@ -22,39 +23,42 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health <=0)
+        if(hudData.active)
         {
-            Destroy(gameObject);
-        }
-        range = Vector2.Distance(transform.position, target.position);
-        if(range < minDistance)
-        {
-            if (!targetCollision)
+            if(health <=0)
             {
-
-                //get position of the player
-                transform.LookAt(target.position);
-                if(target.position.x> gameObject.transform.position.x)
-                {
-                    gameObject.transform.localScale = new Vector3(1f,1f,1f);
-                }
-                else if(target.position.x< gameObject.transform.position.x)
-                {
-                    gameObject.transform.localScale = new Vector3(-1f,1f,1f);
-                }
-                else {}
-                //correct rotation
-                transform.Rotate(new Vector3(0,-90,0), Space.Self);
-                transform.Translate(new Vector3(speed*Time.deltaTime,0,0));
-                animator.Play("Enemy_run");
+                Destroy(gameObject);
             }
+            range = Vector2.Distance(transform.position, target.position);
+            if(range < minDistance)
+            {
+                if (!targetCollision)
+                {
+
+                    //get position of the player
+                    transform.LookAt(target.position);
+                    if(target.position.x> gameObject.transform.position.x)
+                    {
+                        gameObject.transform.localScale = new Vector3(1f,1f,1f);
+                    }
+                    else if(target.position.x< gameObject.transform.position.x)
+                    {
+                        gameObject.transform.localScale = new Vector3(-1f,1f,1f);
+                    }
+                    else {}
+                    //correct rotation
+                    transform.Rotate(new Vector3(0,-90,0), Space.Self);
+                    transform.Translate(new Vector3(speed*Time.deltaTime,0,0));
+                    animator.Play("Enemy_run");
+                }
+            }
+            else{
+                Invoke("FalseCollision", 0.25f);
+                animator.Play("Enemy_Idle");
+                }
+
+            transform.rotation= Quaternion.identity;
         }
-        else{
-            Invoke("FalseCollision", 0.25f);
-            animator.Play("Enemy_Idle");
-            }
-
-        transform.rotation= Quaternion.identity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -87,13 +91,9 @@ public class EnemyScript : MonoBehaviour
 
             bool right = contactPoint.x > center.x;
             bool left = contactPoint.x < center.x;
-            bool top = contactPoint.y > center.y;
-            bool bottom = contactPoint.y < center.y;
 
              if (right) GetComponent<Rigidbody2D>().AddForce(transform.right * thrust, ForceMode2D.Impulse); 
              if (left) GetComponent<Rigidbody2D>().AddForce(-transform.right * thrust, ForceMode2D.Impulse); 
-             if (top) GetComponent<Rigidbody2D>().AddForce(transform.up * thrust, ForceMode2D.Impulse); 
-             if (bottom) GetComponent<Rigidbody2D>().AddForce(-transform.up * thrust, ForceMode2D.Impulse); 
              Invoke("FalseCollision", 0.25f);
              animator.Play("Enemy_Idle");
         }
@@ -106,8 +106,7 @@ public class EnemyScript : MonoBehaviour
         
     } 
     public void TakeDamage(int amount)
-    {
-        
+    { 
         health -= amount;
     }
 }
