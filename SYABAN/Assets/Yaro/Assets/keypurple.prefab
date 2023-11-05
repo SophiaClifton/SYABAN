@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1702539413807191283}
   - component: {fileID: 471789802170763569}
   - component: {fileID: -7193599376530001369}
+  - component: {fileID: 789845592636658864}
   m_Layer: 0
   m_Name: keypurple
   m_TagString: Untagged
@@ -130,3 +131,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.69524705, y: 0.7284105}
   m_EdgeRadius: 0
+--- !u!114 &789845592636658864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123190999705806441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf22205203ec8c44dbc57d50e98a6efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudData: {fileID: 11400000, guid: 12b6c9a1df847244f9831f1acf6feb56, type: 2}
