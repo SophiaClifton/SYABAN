@@ -51,8 +51,11 @@ public class Door : Obstacle
 
         active = true;
         audioSource.Stop();
-        audioSource.PlayOneShot(activateSound);
-        reachedDestination = false;
+        if (transform.position != activePos) {
+            audioSource.PlayOneShot(activateSound);
+            reachedDestination = false;
+        }
+        
     }
 
     // Block the players.
@@ -61,7 +64,9 @@ public class Door : Obstacle
 
         active = false;
         audioSource.Stop();
-        audioSource.PlayOneShot(deactivateSound);
-        reachedDestination = false;
+        if (transform.position != inactivePos) {
+            audioSource.PlayOneShot(deactivateSound);
+            reachedDestination = false;
+        }
     }
 }
