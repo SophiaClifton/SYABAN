@@ -14,7 +14,7 @@ public class Shooting : MonoBehaviour
     public Animator animator;
     public int health = 100;
     private float range;
-    private float minDistance = 5.0f;
+    [SerializeField] private float minDistance = 5.0f;
     public Transform target;
     public GameObject particles;
     public int waitBetweenShoot = 1;

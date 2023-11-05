@@ -19,7 +19,12 @@ public class BulletYaro : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        InteractableButton button = collision.GetComponent<InteractableButton>();
+        if(button != null){
+            if(!button.interact){
+                button.interact = true;
+            }
+        }
         if(collision.gameObject.CompareTag("Turret"))
         {
             Destroy(gameObject);
