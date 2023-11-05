@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     public float HPWidth;
     public Image staminaIMG; 
     public float staminaWidth;
-
+    public hudDATA hudData;
     [SerializeField] private float health;
     
     [SerializeField] private Rigidbody2D rb;
@@ -44,38 +44,38 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        Flip();
-        if (Input.GetButtonDown("Jump")&& IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
+        if(hudData.active)
+            {
+            horizontal = Input.GetAxisRaw("Horizontal");
+            Flip();
+            if (Input.GetButtonDown("Jump")&& IsGrounded())
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            }
+            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            }
 
-        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-        if (Input.GetButtonDown("Fire1") && HasStamina)
-        {
-            AttackPewPew();
+            animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+            if (Input.GetButtonDown("Fire1") && HasStamina)
+            {
+                AttackPewPew();
+            }
+            if (Input.GetButtonUp("Fire1") && HasStamina)
+            {
+                animator.SetBool("IsShooting", false);
+                isShooting = false;
+            }
+            if (Input.GetButtonDown("Fire2") && HasStamina)
+            {
+                AttackSlash();
+            }
+            if (Input.GetButtonUp("Fire2"))
+            {
+                animator.SetBool("IsSlashing", false);
+            }
         }
-        if (Input.GetButtonUp("Fire1") && HasStamina)
-        {
-            animator.SetBool("IsShooting", false);
-            isShooting = false;
-        }
-        if (Input.GetButtonDown("Fire2") && HasStamina)
-        {
-            AttackSlash();
-        }
-        if (Input.GetButtonUp("Fire2"))
-        {
-            animator.SetBool("IsSlashing", false);
-        }
-
-
-
     }
 
     void FixedUpdate()

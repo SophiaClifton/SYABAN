@@ -633,6 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 474574656}
   pauseButton: {fileID: 521710345}
+  hudData: {fileID: 11400000, guid: 12b6c9a1df847244f9831f1acf6feb56, type: 2}
 --- !u!1 &302087163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,6 +1617,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4227016910727100689, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: HP
       value: 
@@ -1629,6 +1634,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
+      propertyPath: hudData
+      value: 
+      objectReference: {fileID: 11400000, guid: 12b6c9a1df847244f9831f1acf6feb56, type: 2}
+    - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: stamina
       value: 100
       objectReference: {fileID: 0}
@@ -1638,15 +1647,23 @@ PrefabInstance:
       objectReference: {fileID: 1711215694}
     - target: {fileID: 5593888977000786813, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5593888977000786813, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: m_SortingLayerID
       value: -1378368143
       objectReference: {fileID: 0}
+    - target: {fileID: 7165180353372137661, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8668345230252256201, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8668345230252256201, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8668345230252256201, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: m_IsActive
@@ -1841,6 +1858,7 @@ MonoBehaviour:
   target: {fileID: 1361602056}
   animator: {fileID: 501467112}
   health: 100
+  hudData: {fileID: 11400000, guid: 12b6c9a1df847244f9831f1acf6feb56, type: 2}
 --- !u!61 &501467110
 BoxCollider2D:
   m_ObjectHideFlags: 0
