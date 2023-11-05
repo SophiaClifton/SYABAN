@@ -14,5 +14,9 @@ public class startButton : MonoBehaviour
         pauseButton.SetActive(true);
         Time.timeScale = 1f;
         hudData.active = true;
+        hudData.startOfGame=false;
+        KeyManager.Instance.startgame=false;
+        
+
     }
 }

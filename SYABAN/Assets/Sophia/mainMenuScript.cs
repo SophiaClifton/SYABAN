@@ -8,5 +8,9 @@ public class mainMenuScript : MonoBehaviour
     void Update()
     {
         Time.timeScale = 0f;
+        if(KeyManager.Instance.startgame!=true)
+        {
+            gameObject.SetActive(false);
+        }
     } 
 }

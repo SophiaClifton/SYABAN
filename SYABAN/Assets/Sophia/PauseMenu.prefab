@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3453184615056947125
 RectTransform:
   m_ObjectHideFlags: 0
@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 169266919270883119}
   - component: {fileID: 7710889660769521758}
   - component: {fileID: 4528335272445739527}
+  - component: {fileID: 7006858038384479511}
   m_Layer: 0
   m_Name: Main Menu
   m_TagString: Untagged
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4528335272445739527}
+      - m_Target: {fileID: 7006858038384479511}
         m_TargetAssemblyTypeName: toMainMenu, Assembly-CSharp
         m_MethodName: returnMainMenu
         m_Mode: 1
@@ -248,6 +249,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bff9211c6d0c5a498227e64de7650d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hudData: {fileID: 11400000, guid: 12b6c9a1df847244f9831f1acf6feb56, type: 2}
+--- !u!114 &7006858038384479511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020089833392730685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bff9211c6d0c5a498227e64de7650d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudData: {fileID: 11400000, guid: 12b6c9a1df847244f9831f1acf6feb56, type: 2}
 --- !u!1 &2343463699542179248
 GameObject:
   m_ObjectHideFlags: 0

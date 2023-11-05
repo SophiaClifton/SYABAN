@@ -23,6 +23,8 @@ public class InteractableButton : Interactable
     public override void StopInteract() {
         GetComponent<SpriteRenderer>().sprite = inactiveSprite;
         linkedObstacle.Deactivate();
+        StartCoroutine(waitMore());
+        stopInteract = false;
     }
 
     // Update is called once per frame
@@ -34,7 +36,6 @@ public class InteractableButton : Interactable
             Interact();
         }
         if (stopInteract) {
-            stopInteract = false;
             StopInteract();
         }
     }
@@ -51,5 +52,6 @@ public class InteractableButton : Interactable
         yield return new WaitForSeconds(2);  
         isWaiting = false;
         GetComponent<SpriteRenderer>().sprite = inactiveSprite;
+        yield return new WaitForSeconds(3);  
     }
 }
