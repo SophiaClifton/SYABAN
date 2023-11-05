@@ -30,8 +30,7 @@ private void Update()
 {
     if (isInteracting && Input.GetKeyDown(KeyCode.E))
     {
-        Debug.Log("levelpurple");
-        SceneManager.LoadScene("LevelPurple");
+        SceneManager.LoadScene("LevelGreen");
     }
 }
 
