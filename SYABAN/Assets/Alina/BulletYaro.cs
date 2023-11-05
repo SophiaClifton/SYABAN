@@ -30,6 +30,11 @@ public class BulletYaro : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("turretCollision");
         }
+
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<EnemyScript>().TakeDamage(20);
+        }
        
     }
 }
