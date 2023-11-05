@@ -963,10 +963,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 855739111449879713, guid: 24c8c8521e14e87438d3baf3797ecfbb, type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3092303217392981121, guid: 24c8c8521e14e87438d3baf3797ecfbb, type: 3}
       propertyPath: m_Name
       value: Box
@@ -2215,8 +2211,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 759387544790278621, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
-      propertyPath: m_UsedByComposite
-      value: 0
+      propertyPath: m_Size.x
+      value: 0.73211193
+      objectReference: {fileID: 0}
+    - target: {fileID: 759387544790278621, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9420037
+      objectReference: {fileID: 0}
+    - target: {fileID: 759387544790278621, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.045568585
+      objectReference: {fileID: 0}
+    - target: {fileID: 759387544790278621, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.028998137
       objectReference: {fileID: 0}
     - target: {fileID: 2509187118417593530, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2263,36 +2271,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1772694991}
     - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
-      propertyPath: hudData
-      value: 
-      objectReference: {fileID: 11400000, guid: 12b6c9a1df847244f9831f1acf6feb56, type: 2}
-    - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
-      propertyPath: stamina
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: staminaIMG
       value: 
       objectReference: {fileID: 1772694990}
-    - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
-      propertyPath: blockingLayer.m_Bits
-      value: 65
-      objectReference: {fileID: 0}
     - target: {fileID: 8668345230252256201, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8779161224618997381, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8779161224618997381, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.size
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

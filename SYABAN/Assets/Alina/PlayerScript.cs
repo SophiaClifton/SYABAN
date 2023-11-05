@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(PlayerSound))]
 public class PlayerScript : MonoBehaviour
 {
     
@@ -34,8 +35,9 @@ public class PlayerScript : MonoBehaviour
     public Animator animator;
     private bool hasStamina = true;//use for determining if player can shoot /hit
 
-    public bool isWalking;
-    public bool IsWalking { get { return isWalking; } }
+    [SerializeField] float walkInterval = 0.2f;
+    private float walkTimer = 0;
+    PlayerSound playerSound;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,7 @@ public class PlayerScript : MonoBehaviour
         HPWidth = HP.rectTransform.rect.width;
         staminaWidth = staminaIMG.rectTransform.rect.width;
         StartCoroutine(RegainStaminaOverTime());
+        playerSound = GetComponent<PlayerSound>();
     }
 
     // Update is called once per frame
@@ -82,10 +85,16 @@ public class PlayerScript : MonoBehaviour
         }
 
         if (IsGrounded() && math.abs(rb.velocity.x) > 0.05f) {
-            isWalking = true;
+            walkTimer += Time.deltaTime;
+            if (walkTimer >= walkInterval) {
+                playerSound.PlayWalk();
+                walkTimer = 0;
+            }
         } else {
-            isWalking = false;
+            walkTimer = walkInterval;
         }
+
+
     }
 
     void FixedUpdate()
