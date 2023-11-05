@@ -43,7 +43,6 @@ public class PlayerScript : MonoBehaviour
 
     public bool coroutineStarted;
     public bool isJumping;
-    KeyManager keyManager = KeyManager.Instance;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,70 +55,69 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        KeyManager keyManager = KeyManager.Instance;
 
-    if (keyManager != null && keyManager.startgame != true) {
-        // Your code here
-
+if (keyManager != null && keyManager.startgame != true) {
+    // Your code here
+}
         if(KeyManager.Instance.startgame!=true)
             {
-                horizontal = Input.GetAxisRaw("Horizontal");
-                
-                Flip();
-                
-                if (Input.GetButtonDown("Jump")&& IsGrounded())
-                {
-                    rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-                }
-                if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-                {
-                    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-                }
-                if (IsGrounded())
-                {
-                    animator.SetBool("IsJumping", false);
-                }
-                else
-                {
-                    Debug.Log("Jumpy jump reached");
-                    animator.SetBool("IsJumping", true);
-                }
-                animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-                if (Input.GetButtonDown("Fire1") && HasStamina)
-                {
-                    AttackPewPew();
-                
-                    Debug.Log("Shooting made");
-                }
-                if (Input.GetButtonUp("Fire1") && HasStamina)
-                {
-                animator.SetBool("IsShooting", false);
-                isShooting = false;
-                }
-                if (Input.GetButtonDown("Fire2") && HasStamina)
-                {
-                    AttackSlash();
-                }
-                if (Input.GetButtonUp("Fire2"))
-                {
-                    animator.SetBool("IsSlashing", false);
-                    
-                }
-            }
-            if (IsGrounded() && math.abs(rb.velocity.x) > 0.05f) {
-                walkTimer += Time.deltaTime;
-                if (walkTimer >= walkInterval) {
-                    playerSound.PlayWalk();
-                    walkTimer = 0;
-                }
-            } else {
-                walkTimer = walkInterval;
-            }
+            horizontal = Input.GetAxisRaw("Horizontal");
             
-
-            if(health <=0 && !isdead){
-                StartCoroutine(death());
+            Flip();
+            
+            if (Input.GetButtonDown("Jump")&& IsGrounded())
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             }
+            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            }
+            if (IsGrounded())
+            {
+                animator.SetBool("IsJumping", false);
+            }
+            else
+            {
+                Debug.Log("Jumpy jump reached");
+                animator.SetBool("IsJumping", true);
+            }
+            animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+            if (Input.GetButtonDown("Fire1") && HasStamina)
+            {
+                AttackPewPew();
+               
+                Debug.Log("Shooting made");
+            }
+            if (Input.GetButtonUp("Fire1") && HasStamina)
+            {
+               animator.SetBool("IsShooting", false);
+               isShooting = false;
+            }
+            if (Input.GetButtonDown("Fire2") && HasStamina)
+            {
+                AttackSlash();
+            }
+            if (Input.GetButtonUp("Fire2"))
+            {
+                animator.SetBool("IsSlashing", false);
+                
+            }
+        }
+        if (IsGrounded() && math.abs(rb.velocity.x) > 0.05f) {
+            walkTimer += Time.deltaTime;
+            if (walkTimer >= walkInterval) {
+                playerSound.PlayWalk();
+                walkTimer = 0;
+            }
+        } else {
+            walkTimer = walkInterval;
+        }
+        
+
+        if(health <=0 && !isdead){
+             StartCoroutine(death());
         }
     }
 
