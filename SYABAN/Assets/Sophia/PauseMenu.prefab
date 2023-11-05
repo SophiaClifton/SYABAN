@@ -286,7 +286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3453184615056947125
 RectTransform:
   m_ObjectHideFlags: 0
@@ -326,8 +326,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 1
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -1752756381
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -841,7 +841,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1045bc986a271394f997711138f36d33, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd50457236fb73f4c8120430499fce61, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
