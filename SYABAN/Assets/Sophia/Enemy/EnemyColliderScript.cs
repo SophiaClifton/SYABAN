@@ -8,7 +8,7 @@ public class EnemyColliderScript : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerScript>().TakeDamage(5);
+            collision.gameObject.GetComponent<PlayerScript>().TakeDamage(20);
         }
     }
 }
