@@ -117,6 +117,7 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        animator.SetBool("GotHurt", true);
         if(health>0)
         {
             health -= amount;
@@ -124,6 +125,7 @@ public class PlayerScript : MonoBehaviour
             Vector2 temp = new Vector2(HPWidth, HP.rectTransform.rect.height);
             HP.rectTransform.sizeDelta = temp;
         }
+        animator.SetBool("GotHurt", false);
     }
 
     public void AttackPewPew()
