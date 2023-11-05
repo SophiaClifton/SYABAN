@@ -64,14 +64,17 @@ TagManager:
   - name: Folliage
     uniqueID: 2919854729
     locked: 0
-  - name: Character
-    uniqueID: 2916599153
-    locked: 0
   - name: Interactables
     uniqueID: 2100920077
     locked: 0
   - name: Foreground
     uniqueID: 2896605333
+    locked: 0
+  - name: Character
+    uniqueID: 2916599153
+    locked: 0
+  - name: BambooLayer
+    uniqueID: 175699069
     locked: 0
   - name: UI
     uniqueID: 1436106731
