@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float health;
     [SerializeField] public Transform firepoint;
-
+    [SerializeField] public bool isShooting;
     public bool HasStamina = true;
     public GameObject bullet;
     private float horizontal;
@@ -47,6 +47,12 @@ public class PlayerScript : MonoBehaviour
         {
             AttackPewPew();
         }
+        if (Input.GetButtonUp("Fire1") && HasStamina)
+        {
+            animator.SetBool("IsShooting", false);
+            isShooting = false;
+        }
+
 
 
     }
@@ -86,8 +92,15 @@ public class PlayerScript : MonoBehaviour
 
     public void AttackPewPew()
     {
-        Debug.Log("Attack point reached");
-        GetComponent<Animator>().Play("AmitouShoot", 0, 0f);
+        float timer=5f;
+        while (timer > 0)
+        {
+            animator.SetBool("IsShooting", true); 
+            isShooting = true;
+            Debug.Log("Attack point reached");
+            timer-=Time.deltaTime;
+        } 
+        
         Instantiate(bullet, firepoint.position,firepoint.rotation);
      
     }
