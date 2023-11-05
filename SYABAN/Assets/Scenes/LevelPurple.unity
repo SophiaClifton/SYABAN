@@ -2448,10 +2448,6 @@ PrefabInstance:
       propertyPath: staminaIMG
       value: 
       objectReference: {fileID: 1894661578}
-    - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
-      propertyPath: deathParticles
-      value: 
-      objectReference: {fileID: 7937338753336838912, guid: 028af5028ecae8341b1fd83dc3223907, type: 3}
     - target: {fileID: 8668345230252256201, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: m_Name
       value: Player

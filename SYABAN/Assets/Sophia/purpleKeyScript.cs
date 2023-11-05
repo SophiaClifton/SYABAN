@@ -11,7 +11,7 @@ public class purpleKeyScript : MonoBehaviour
     if (collision.gameObject.CompareTag("Player"))
     {
         Time.timeScale = 1f;
-        PlayerPrefs.SetInt("level1complete", 1);
+        KeyManager.Instance.keyCount++;
         SceneManager.LoadScene("SophiaScene");
     }
 }

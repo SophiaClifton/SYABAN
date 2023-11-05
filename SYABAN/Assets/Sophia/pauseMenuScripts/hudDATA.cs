@@ -12,8 +12,8 @@ public class hudDATA : ScriptableObject
 
     public void Start ()
     {
-        
         active = false;
         
     }
+
 }

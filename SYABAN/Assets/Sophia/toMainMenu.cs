@@ -10,7 +10,6 @@ public class toMainMenu : MonoBehaviour
     public void returnMainMenu()
     {
         Time.timeScale = 1f;
-        PlayerPrefs.SetInt("level1complete", 1);
         SceneManager.LoadScene("SophiaScene");
     } 
 }

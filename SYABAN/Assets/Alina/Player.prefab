@@ -245,7 +245,7 @@ MonoBehaviour:
   staminaWidth: 0
   hudData: {fileID: 11400000, guid: 12b6c9a1df847244f9831f1acf6feb56, type: 2}
   health: 100
-  deathParticles: {fileID: 0}
+  deathParticles: {fileID: 7937338753336838912, guid: 028af5028ecae8341b1fd83dc3223907, type: 3}
   rb: {fileID: 4186710520579870052}
   speed: 4
   jumpingPower: 12

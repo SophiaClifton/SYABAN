@@ -13,10 +13,6 @@ public class GameManagerScript : MonoBehaviour
         {
             mainMenu.SetActive(true);
         }
-        if(!hudData.startOfGame)
-        {
-            Time.timeScale = 1f;
-        }
         
     }
 
