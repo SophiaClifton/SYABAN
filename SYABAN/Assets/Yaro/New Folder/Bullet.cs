@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
     {
         Debug.Log(collision);
         button = collision.GetComponent<InteractableButton>();
-Debug.Log(button);
+Debug.Log("Button " + button);
         if(enemy != null)
         {
             //pink beats yellow
@@ -38,20 +38,12 @@ Debug.Log(button);
         if(button != null){
             Debug.Log("here1");
             if(!button.interact){
-            Debug.Log("here2");
-            StartCoroutine(interact());}
+                button.interact = true;
+            }
             
         }
 
         Destroy(gameObject);
-    }
-
-    IEnumerator interact()
-    {
-        Debug.Log("here3");
-        button.interact = true;
-        yield return new WaitForSeconds(time);
-        button.interact = false;    
     }
    
 }

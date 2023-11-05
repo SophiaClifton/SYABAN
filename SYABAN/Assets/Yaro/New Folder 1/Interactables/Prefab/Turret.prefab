@@ -41,9 +41,10 @@ GameObject:
   m_Component:
   - component: {fileID: 926726533716370096}
   - component: {fileID: 3008058830535319242}
-  - component: {fileID: 5088414162727912889}
   - component: {fileID: 8087074648227508680}
   - component: {fileID: 3814970994535378882}
+  - component: {fileID: 5088414162727912889}
+  - component: {fileID: 8391312867151508853}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -119,25 +120,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5088414162727912889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1012811940553066692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f532a2f450dcf743990f331fe24bee9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firepoint: {fileID: 8214995746516659110}
-  BulletPrefab: {fileID: 6039216360649896231, guid: 7283cb9ec38ff6a4499742100ea320e3, type: 3}
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: 100
-  target: {fileID: 0}
-  particles: {fileID: 0}
 --- !u!50 &8087074648227508680
 Rigidbody2D:
   serializedVersion: 4
@@ -210,3 +192,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5088414162727912889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012811940553066692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f532a2f450dcf743990f331fe24bee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firepoint: {fileID: 8214995746516659110}
+  BulletPrefab: {fileID: 6039216360649896231, guid: 7283cb9ec38ff6a4499742100ea320e3, type: 3}
+  player: {fileID: 0}
+  animator: {fileID: 8391312867151508853}
+  health: 100
+  target: {fileID: 0}
+  particles: {fileID: 0}
+  waitBetweenShoot: 1
+--- !u!95 &8391312867151508853
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012811940553066692}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7ac08b0b1bb1d0340a1a9d028baafa05, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

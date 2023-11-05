@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractableButton : Interactable
 {
-    
+    public int waitTime = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,6 +12,7 @@ public class InteractableButton : Interactable
 
     public override void Interact() {
         linkedObstacle.Activate();
+        StartCoroutine(wait(true));
     }
 
     public override void StopInteract() {
@@ -29,5 +30,11 @@ public class InteractableButton : Interactable
             stopInteract = false;
             StopInteract();
         }
+    }
+
+    IEnumerator wait(bool x)
+    {
+        yield return new WaitForSeconds(waitTime);  
+        StopInteract();
     }
 }

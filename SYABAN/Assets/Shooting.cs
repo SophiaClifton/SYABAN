@@ -17,6 +17,7 @@ public class Shooting : MonoBehaviour
     private float minDistance = 5.0f;
     public Transform target;
     public GameObject particles;
+    public int waitBetweenShoot = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +26,12 @@ public class Shooting : MonoBehaviour
     }
     
       IEnumerator ExampleCoroutine()
-    {
-    
+    {   coroutineStarted = true;
+        animator.SetBool("isShooting",true);
         Instantiate(BulletPrefab, firepoint.position, firepoint.rotation);
-        coroutineStarted = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);  
+        animator.SetBool("isShooting",false);
+        yield return new WaitForSeconds(waitBetweenShoot);
         coroutineStarted = false;
     }
     // Update is called once per frame
@@ -80,9 +82,16 @@ public class Shooting : MonoBehaviour
         health--;
         if(health <= 0)
         {
+            animator.SetBool("isShooting",true);
             Instantiate(particles, transform.position, transform.rotation);
+            waitForAnim(animator.GetCurrentAnimatorStateInfo(0).length);
             Destroy(gameObject);
         }
+        
+    }
+    IEnumerator waitForAnim(float time){
+        yield return new WaitForSeconds(time);  
+        animator.SetBool("isShooting",false);
     }
 
     }
