@@ -5,11 +5,11 @@ using UnityEngine;
 public class EnemyWander : MonoBehaviour
 {
     public float speed;
-    Rigidbody2D rigidbody2D;
+    private Rigidbody2D rb2D;
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -18,12 +18,12 @@ public class EnemyWander : MonoBehaviour
         if (IsFacingRight())
         {
             //move right
-            rigidbody2D.velocity = new Vector2(speed, 0f);
+            rb2D.velocity = new Vector2(speed, 0f);
         }
         else
         {
             //move left
-            rigidbody2D.velocity = new Vector2(-speed, 0f);
+            rb2D.velocity = new Vector2(-speed, 0f);
         }
     }
     private bool IsFacingRight()
@@ -32,6 +32,6 @@ public class EnemyWander : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        transform.localScale = new Vector2(-(Mathf.Sign(rigidbody2D.velocity.x)), transform.localScale.y);
+        transform.localScale = new Vector2(-(Mathf.Sign(rb2D.velocity.x)), transform.localScale.y);
     }
 }
