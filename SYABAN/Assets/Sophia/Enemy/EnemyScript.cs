@@ -49,12 +49,12 @@ public class EnemyScript : MonoBehaviour
                     //correct rotation
                     transform.Rotate(new Vector3(0,-90,0), Space.Self);
                     transform.Translate(new Vector3(speed*Time.deltaTime,0,0));
-                    animator.Play("Enemy_run");
+                    animator.Play("Dog_run");
                 }
             }
             else{
                 Invoke("FalseCollision", 0.25f);
-                animator.Play("Enemy_Idle");
+                animator.Play("Dog_idle");
                 }
 
             transform.rotation= Quaternion.identity;
@@ -76,7 +76,7 @@ public class EnemyScript : MonoBehaviour
              if (right) GetComponent<Rigidbody2D>().AddForce(transform.right * thrust, ForceMode2D.Impulse); 
              if (left) GetComponent<Rigidbody2D>().AddForce(-transform.right * thrust, ForceMode2D.Impulse); 
              Invoke("FalseCollision", 0.25f);
-             animator.Play("Enemy_attack");
+             animator.Play("Dog_attack");
         }
     }
 
@@ -95,7 +95,7 @@ public class EnemyScript : MonoBehaviour
              if (right) GetComponent<Rigidbody2D>().AddForce(transform.right * thrust, ForceMode2D.Impulse); 
              if (left) GetComponent<Rigidbody2D>().AddForce(-transform.right * thrust, ForceMode2D.Impulse); 
              Invoke("FalseCollision", 0.25f);
-             animator.Play("Enemy_Idle");
+             animator.Play("Dog_idle");
         }
     }
 
