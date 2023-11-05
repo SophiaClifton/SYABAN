@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BulletYaro : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
 
     public float speed = -20f;
@@ -28,7 +28,7 @@ public class BulletYaro : MonoBehaviour
     {
         Debug.Log(collision);
         button = collision.GetComponent<InteractableButton>();
-Debug.Log("Button " + button);
+        Debug.Log("Button " + button);
         if(enemy != null)
         {
             //pink beats yellow
@@ -47,6 +47,22 @@ Debug.Log("Button " + button);
         if(collision.GetComponent<Shooting>() == null){
             Instantiate(particles, transform.position, transform.rotation);
             Destroy(gameObject);
+        }
+
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            Debug.Log("playerCollision");
+        }
+
+        if(collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+            Debug.Log("playerCollision");
+        }
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerScript>().TakeDamage(20);
         }
     }
    

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BulletYaro : MonoBehaviour
 {
     public float speed = 20f;
     public Rigidbody2D rb;
@@ -19,10 +19,12 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if(collision.gameObject.CompareTag("Enemy"))
+        
+        if(collision.gameObject.CompareTag("Turret"))
         {
-            collision.gameObject.GetComponent<EnemyScript>().TakeDamage(20);
+            Destroy(gameObject);
+            Debug.Log("turretCollision");
         }
+       
     }
 }
