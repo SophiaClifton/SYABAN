@@ -169,12 +169,12 @@ public class PlayerScript : MonoBehaviour
     }
 
     public IEnumerator RegainStaminaOverTime()
-{
-    while (true)
     {
-        yield return new WaitForSeconds(1.0f);
-        RegainStamina();
+        while (true)
+        {
+            yield return new WaitForSeconds(1.0f);
+            RegainStamina();
+        }
     }
-}
 
 }
