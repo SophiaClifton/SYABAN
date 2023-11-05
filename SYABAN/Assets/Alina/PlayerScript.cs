@@ -210,4 +210,12 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D (Collider2D collision)
+    {
+        if(collision.GetComponent<pit>() != null)
+        {
+            transform.position = new Vector3(1.0f, 1.0f, 1.0f);
+        }
+
+    }
 }

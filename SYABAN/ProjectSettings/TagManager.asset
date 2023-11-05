@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - Wall
   - Turret
+  - PitDeath
   layers:
   - Default
   - TransparentFX
