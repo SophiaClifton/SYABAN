@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractableButton : Interactable
@@ -10,6 +11,8 @@ public class InteractableButton : Interactable
     {
     }
 
+    private bool isActive = false;
+
     public override void Interact() {
         linkedObstacle.Activate();
         StartCoroutine(wait(true));
@@ -17,6 +20,8 @@ public class InteractableButton : Interactable
 
     public override void StopInteract() {
         linkedObstacle.Deactivate();
+        StartCoroutine(waitMore());
+        stopInteract = false;
     }
 
     // Update is called once per frame
@@ -27,7 +32,6 @@ public class InteractableButton : Interactable
             Interact();
         }
         if (stopInteract) {
-            stopInteract = false;
             StopInteract();
         }
     }
@@ -35,6 +39,11 @@ public class InteractableButton : Interactable
     IEnumerator wait(bool x)
     {
         yield return new WaitForSeconds(waitTime);  
-        StopInteract();
+        stopInteract = true;
+    }
+
+    IEnumerator waitMore()
+    {
+        yield return new WaitForSeconds(3);  
     }
 }

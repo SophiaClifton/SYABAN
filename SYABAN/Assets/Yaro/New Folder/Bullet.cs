@@ -23,6 +23,16 @@ public class Bullet : MonoBehaviour
     {
         
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+         
+         if(collision.gameObject.name == "Button"){
+            Debug.Log("here1");
+            if(!button.interact){
+                button.interact = true;
+            }
+        }
+    }
 
     void OnTriggerEnter2D (Collider2D collision)
     {
@@ -35,13 +45,13 @@ public class Bullet : MonoBehaviour
             //yellow beats green
             //green beats pink
             enemy.TakeDamage();
-        } 
+        }
+         
         if(button != null){
             Debug.Log("here1");
             if(!button.interact){
                 button.interact = true;
             }
-            
         }
 
         if(collision.GetComponent<Shooting>() == null){
