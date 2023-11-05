@@ -20,7 +20,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float jumpingPower = 16f;
     [SerializeField] private LayerMask blockingLayer;
     [SerializeField] private Transform groundCheck;
-    
+    [SerializeField] private Animator animator;
     [SerializeField] public Transform firepoint;
     [SerializeField] public bool isShooting;
     public bool HasStamina = true;
@@ -30,8 +30,10 @@ public class PlayerScript : MonoBehaviour
     
     private float horizontal;
     private bool isFacingRight = true;
-    public Animator animator;
+    
     private bool hasStamina = true;//use for determining if player can shoot /hit
+
+    public bool coroutineStarted;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +49,9 @@ public class PlayerScript : MonoBehaviour
         if(hudData.active)
             {
             horizontal = Input.GetAxisRaw("Horizontal");
+            
             Flip();
+            
             if (Input.GetButtonDown("Jump")&& IsGrounded())
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
@@ -61,11 +65,13 @@ public class PlayerScript : MonoBehaviour
             if (Input.GetButtonDown("Fire1") && HasStamina)
             {
                 AttackPewPew();
+               
+                Debug.Log("Shooting made");
             }
             if (Input.GetButtonUp("Fire1") && HasStamina)
             {
-                animator.SetBool("IsShooting", false);
-                isShooting = false;
+               animator.SetBool("IsShooting", false);
+               isShooting = false;
             }
             if (Input.GetButtonDown("Fire2") && HasStamina)
             {
@@ -74,6 +80,7 @@ public class PlayerScript : MonoBehaviour
             if (Input.GetButtonUp("Fire2"))
             {
                 animator.SetBool("IsSlashing", false);
+                
             }
         }
     }
@@ -113,20 +120,36 @@ public class PlayerScript : MonoBehaviour
 
     public void AttackPewPew()
     {
-        if(hasStamina){
-            animator.SetBool("IsShooting", true); 
+        if (hasStamina)
+        {
+
+        
+        //animator.SetBool("IsShooting", true); 
+            StartCoroutine(ExampleCoroutine());
             isShooting = true;
-            Debug.Log("Attack point reached");
-            Instantiate(bullet, firepoint.position,firepoint.rotation);
+            Debug.Log("Attack point reachedIMKMS");
+            animator.Play("AmoutiShoot");
+            //Instantiate(bullet, firepoint.position,firepoint.rotation);
             loseStamina();
         }
     }
-
+    IEnumerator ExampleCoroutine()
+    {
+        coroutineStarted = true;
+        animator.SetBool("IsShooting", true);
+        yield return new WaitForSeconds((float)0.4);
+        Instantiate(bullet, firepoint.position, firepoint.rotation);
+        yield return new WaitForSeconds((float)0.3);
+        animator.SetBool("IsShooting", false);
+        //yield return new WaitForSeconds(waitBetweenShoot);
+        coroutineStarted = false;
+    }
     public void AttackSlash()
     {
         if(hasStamina)
         {
             animator.SetBool("IsSlashing", true);
+            animator.Play("AmoutiSlash");
             loseStamina();
         }
     }
