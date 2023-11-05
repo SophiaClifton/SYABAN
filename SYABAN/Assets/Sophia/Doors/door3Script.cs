@@ -9,7 +9,7 @@ public class door3Script : MonoBehaviour
     public GameObject obj02;
     public GameObject obj12;
     private bool isInteracting = false;
-    public hudDATA hudData;
+    //public hudDATA hudData;
     int purplekeys = KeyManager.Instance.purplekeyCount;
     int greenkeys = KeyManager.Instance.greenkeyCount;
 

@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     public float HPWidth;
     public Image staminaIMG; 
     public float staminaWidth;
-    public hudDATA hudData;
+    //public hudDATA hudData;
     private bool isdead = false;
     [SerializeField] private float health;
     [SerializeField] private GameObject deathParticles;
@@ -55,7 +55,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hudData.active||KeyManager.Instance.startgame!=true)
+        if(KeyManager.Instance.startgame!=true)
             {
             horizontal = Input.GetAxisRaw("Horizontal");
             

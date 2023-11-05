@@ -12,6 +12,7 @@ public class purpleKeyScript : MonoBehaviour
     {
         Time.timeScale = 1f;
         KeyManager.Instance.purplekeyCount++;
+        //KeyManager.Instance.greenkeyCount++;
         SceneManager.LoadScene("SophiaScene");
     }
 }
