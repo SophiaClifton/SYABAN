@@ -12,28 +12,31 @@ public class Lever : Interactable
 
     public override void Interact() {
         if (!activated) {
+            spriteRenderer.sprite = activeSprite;
             linkedObstacle.Activate();
             activated = true;
         }
         else {
+            spriteRenderer.sprite = inactiveSprite;
             linkedObstacle.Deactivate();
             activated = false;
         }
     }
 
     public override void StopInteract() {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (interact) {
-            interact = false;
-            Interact();
-        }
-        if (stopInteract) {
-            stopInteract = false;
-            StopInteract();
-        }
+        //if (interact) {
+        //    interact = false;
+        //    Interact();
+        //}
+        //if (stopInteract) {
+        //    stopInteract = false;
+        //    StopInteract();
+        //}
     }
 }
