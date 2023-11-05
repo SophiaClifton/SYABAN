@@ -73,9 +73,12 @@ TagManager:
   - name: Character
     uniqueID: 2916599153
     locked: 0
+<<<<<<< Updated upstream
   - name: BambooLayer
     uniqueID: 175699069
     locked: 0
+=======
+>>>>>>> Stashed changes
   - name: UI
     uniqueID: 1436106731
     locked: 0
