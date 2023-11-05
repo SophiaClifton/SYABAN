@@ -13,7 +13,7 @@ public class door1Script : MonoBehaviour
             interactE.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E)) 
             {
-                SceneManager.LoadScene("Door1Scene");
+                SceneManager.LoadScene("LevelPurple");
             }
         }
     }
