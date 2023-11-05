@@ -79,16 +79,6 @@ public class Shooting : MonoBehaviour
           transform.rotation= Quaternion.identity;
         }
 
-        public void TakeDamage()
-    {
-        health--;
-        if(health <= 0)
-        {
-            Instantiate(particles, transform.position, transform.rotation);
-            Destroy(gameObject);
-        }
-        
-    }
 
     }
 

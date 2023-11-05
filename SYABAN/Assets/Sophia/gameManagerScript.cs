@@ -12,5 +12,7 @@ public class GameManagerScript : MonoBehaviour
     public void InitializeGame()
     {
         hudData.active = false;
+        hudData.level1complete = false;
+        hudData.level2complete = false;
     }
 }
