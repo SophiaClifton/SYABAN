@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
@@ -8,7 +9,15 @@ public class GameManagerScript : MonoBehaviour
     private void Start()
     {
         InitializeGame();
-        mainMenu.SetActive(true);
+        if(hudData.startOfGame)
+        {
+            mainMenu.SetActive(true);
+        }
+        if(!hudData.startOfGame)
+        {
+            Time.timeScale = 1f;
+        }
+        
     }
 
     public void InitializeGame()
@@ -16,5 +25,12 @@ public class GameManagerScript : MonoBehaviour
         hudData.active = false;
         hudData.level1complete = false;
         hudData.level2complete = false;
+    }
+    public void Update ()
+    {
+        if(!hudData.startOfGame)
+        {
+            Time.timeScale = 1f;
+        }
     }
 }

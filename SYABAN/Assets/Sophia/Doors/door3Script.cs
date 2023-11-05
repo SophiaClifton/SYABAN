@@ -15,12 +15,12 @@ private void OnTriggerStay2D(Collider2D collision)
 {
     if (collision.gameObject.CompareTag("Player"))
     {
-        if(hudData.level1complete && hudData.level2complete)
+        if(PlayerPrefs.GetInt("level1complete", 0) ==1 && PlayerPrefs.GetInt("level2complete", 0) ==1 )
         {
             isInteracting = true;
             interactE.SetActive(true);
         }
-        else if(hudData.level1complete || hudData.level2complete)
+        else if(PlayerPrefs.GetInt("level1complete", 0) ==1 || PlayerPrefs.GetInt("level2complete", 0) ==1)
         {
             obj12.SetActive(true);
         }

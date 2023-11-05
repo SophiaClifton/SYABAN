@@ -55,7 +55,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hudData.active)
+        if(hudData.active||!hudData.startOfGame)
             {
             horizontal = Input.GetAxisRaw("Horizontal");
             

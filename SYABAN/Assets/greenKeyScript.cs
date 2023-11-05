@@ -10,7 +10,7 @@ public class greenKeyScript : MonoBehaviour
 {
     if (collision.gameObject.CompareTag("Player"))
     {
-        hudData.level2complete =true;
+        PlayerPrefs.SetInt("level2complete", 1);
         SceneManager.LoadScene("SophiaScene");
     }
 }

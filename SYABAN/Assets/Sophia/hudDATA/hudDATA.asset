@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be428dfe1981564494b5f833c8a8965, type: 3}
   m_Name: hudDATA
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
+  level1complete: 0
+  level2complete: 0
+  startOfGame: 0
