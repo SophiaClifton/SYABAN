@@ -54,6 +54,9 @@ TagManager:
   - name: Background 1
     uniqueID: 3191948339
     locked: 0
+  - name: Interactables
+    uniqueID: 2100920077
+    locked: 0
   - name: Middleground
     uniqueID: 2051186441
     locked: 0
@@ -62,9 +65,6 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 2916599153
-    locked: 0
-  - name: Interactables
-    uniqueID: 2100920077
     locked: 0
   - name: Foreground
     uniqueID: 2896605333
