@@ -87,13 +87,9 @@ public class EnemyScript : MonoBehaviour
 
             bool right = contactPoint.x > center.x;
             bool left = contactPoint.x < center.x;
-            bool top = contactPoint.y > center.y;
-            bool bottom = contactPoint.y < center.y;
 
              if (right) GetComponent<Rigidbody2D>().AddForce(transform.right * thrust, ForceMode2D.Impulse); 
              if (left) GetComponent<Rigidbody2D>().AddForce(-transform.right * thrust, ForceMode2D.Impulse); 
-             if (top) GetComponent<Rigidbody2D>().AddForce(transform.up * thrust, ForceMode2D.Impulse); 
-             if (bottom) GetComponent<Rigidbody2D>().AddForce(-transform.up * thrust, ForceMode2D.Impulse); 
              Invoke("FalseCollision", 0.25f);
              animator.Play("Enemy_Idle");
         }

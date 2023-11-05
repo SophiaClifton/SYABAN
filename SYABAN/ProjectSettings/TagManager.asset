@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -50,6 +51,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2896605333
+    locked: 0
+  - name: Folliage
+    uniqueID: 2919854729
     locked: 0
   - name: Character
     uniqueID: 2916599153

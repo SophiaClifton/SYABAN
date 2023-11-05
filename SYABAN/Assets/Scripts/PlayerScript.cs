@@ -1,21 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
+    
     public Image HP; 
     public float HPWidth;
     public Image staminaIMG; 
     public float staminaWidth;
+
+    [SerializeField] private float health;
+    
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed = 8f;
     [SerializeField] private float jumpingPower = 16f;
     [SerializeField] private LayerMask blockingLayer;
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private float health;
     
     [SerializeField] public Transform firepoint;
     [SerializeField] public bool isShooting;
@@ -34,6 +38,7 @@ public class PlayerScript : MonoBehaviour
     {
         HPWidth = HP.rectTransform.rect.width;
         staminaWidth = staminaIMG.rectTransform.rect.width;
+        StartCoroutine(RegainStaminaOverTime());
     }
 
     // Update is called once per frame
@@ -108,29 +113,31 @@ public class PlayerScript : MonoBehaviour
 
     public void AttackPewPew()
     {
-        float timer=5f;
-        while (timer > 0)
-        {
+        if(hasStamina){
             animator.SetBool("IsShooting", true); 
             isShooting = true;
             Debug.Log("Attack point reached");
-            timer-=Time.deltaTime;
-        } 
-        
-        Instantiate(bullet, firepoint.position,firepoint.rotation);
-     
+            Instantiate(bullet, firepoint.position,firepoint.rotation);
+            loseStamina();
+        }
     }
+
     public void AttackSlash()
     {
-        animator.SetBool("IsSlashing", true);
-        
+        if(hasStamina)
+        {
+            animator.SetBool("IsSlashing", true);
+            loseStamina();
+        }
+    }
+     
     public void loseStamina()
     {
         
         if(stamina>0)
         {
-            stamina-=100;
-            staminaWidth -= 100;
+            stamina-=10;
+            staminaWidth -= 10;
             Vector2 temp = new Vector2(staminaWidth, staminaIMG.rectTransform.rect.height);
             staminaIMG.rectTransform.sizeDelta = temp;
         }
@@ -142,32 +149,32 @@ public class PlayerScript : MonoBehaviour
 
     public void RegainStamina()
     {
-        if(stamina+75 >=100)
+        if(stamina+1 >=100)
         {
             stamina = 100;
             staminaWidth = 100;
         }
         else
         {
-            stamina += 75;
-            staminaWidth += 75;
-            Vector2 temp = new Vector2(staminaWidth, staminaIMG.rectTransform.rect.height);
-            staminaIMG.rectTransform.sizeDelta = temp;
-
-            if(stamina >= 100)
-            {
-                hasStamina = true;
-            }
+            stamina += 4;
+            staminaWidth += 4;
         }
-    }
-
-    IEnumerator RegainStaminaOverTime()
-    {
-        while (true)
+        Vector2 temp = new Vector2(staminaWidth, staminaIMG.rectTransform.rect.height);
+        staminaIMG.rectTransform.sizeDelta = temp;
+        if(stamina >= 10)
         {
-            yield return new WaitForSeconds(1.0f); // Wait 1 sec
-            RegainStamina(); // Increase stamina by 75
+            hasStamina = true;
         }
+        
     }
+
+    public IEnumerator RegainStaminaOverTime()
+{
+    while (true)
+    {
+        yield return new WaitForSeconds(1.0f);
+        RegainStamina();
+    }
+}
 
 }
