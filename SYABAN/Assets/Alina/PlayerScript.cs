@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerSound))]
 public class PlayerScript : MonoBehaviour
@@ -15,14 +16,15 @@ public class PlayerScript : MonoBehaviour
     public Image staminaIMG; 
     public float staminaWidth;
     public hudDATA hudData;
+    private bool isdead = false;
     [SerializeField] private float health;
-    
+    [SerializeField] private GameObject deathParticles;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed = 8f;
     [SerializeField] private float jumpingPower = 16f;
     [SerializeField] private LayerMask blockingLayer;
     [SerializeField] private Transform groundCheck;
-    
+    [SerializeField] private Animator animator;
     [SerializeField] public Transform firepoint;
     [SerializeField] public bool isShooting;
     public bool HasStamina = true;
@@ -32,13 +34,15 @@ public class PlayerScript : MonoBehaviour
     
     private float horizontal;
     private bool isFacingRight = true;
-    public Animator animator;
+    
     private bool hasStamina = true;//use for determining if player can shoot /hit
 
     [SerializeField] float walkInterval = 0.2f;
     private float walkTimer = 0;
     PlayerSound playerSound;
 
+    public bool coroutineStarted;
+    public bool isJumping;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +58,9 @@ public class PlayerScript : MonoBehaviour
         if(hudData.active)
             {
             horizontal = Input.GetAxisRaw("Horizontal");
+            
             Flip();
+            
             if (Input.GetButtonDown("Jump")&& IsGrounded())
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
@@ -63,16 +69,26 @@ public class PlayerScript : MonoBehaviour
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             }
-
+            if (IsGrounded())
+            {
+                animator.SetBool("IsJumping", false);
+            }
+            else
+            {
+                Debug.Log("Jumpy jump reached");
+                animator.SetBool("IsJumping", true);
+            }
             animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
             if (Input.GetButtonDown("Fire1") && HasStamina)
             {
                 AttackPewPew();
+               
+                Debug.Log("Shooting made");
             }
             if (Input.GetButtonUp("Fire1") && HasStamina)
             {
-                animator.SetBool("IsShooting", false);
-                isShooting = false;
+               animator.SetBool("IsShooting", false);
+               isShooting = false;
             }
             if (Input.GetButtonDown("Fire2") && HasStamina)
             {
@@ -81,9 +97,9 @@ public class PlayerScript : MonoBehaviour
             if (Input.GetButtonUp("Fire2"))
             {
                 animator.SetBool("IsSlashing", false);
+                
             }
         }
-
         if (IsGrounded() && math.abs(rb.velocity.x) > 0.05f) {
             walkTimer += Time.deltaTime;
             if (walkTimer >= walkInterval) {
@@ -95,6 +111,9 @@ public class PlayerScript : MonoBehaviour
         }
 
 
+        if(health <=0 && !isdead){
+             StartCoroutine(death());
+        }
     }
 
     void FixedUpdate()
@@ -121,6 +140,7 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        animator.SetBool("GotHurt", true);
         if(health>0)
         {
             health -= amount;
@@ -128,24 +148,51 @@ public class PlayerScript : MonoBehaviour
             Vector2 temp = new Vector2(HPWidth, HP.rectTransform.rect.height);
             HP.rectTransform.sizeDelta = temp;
         }
+        animator.SetBool("GotHurt", false);
     }
 
     public void AttackPewPew()
     {
-        if(hasStamina){
-            animator.SetBool("IsShooting", true); 
+        if (hasStamina)
+        {
+
+        
+        //animator.SetBool("IsShooting", true); 
+            StartCoroutine(ExampleCoroutine());
             isShooting = true;
-            Debug.Log("Attack point reached");
-            Instantiate(bullet, firepoint.position,firepoint.rotation);
+            Debug.Log("Attack point reachedIMKMS");
+            animator.Play("AmoutiShoot");
+            //Instantiate(bullet, firepoint.position,firepoint.rotation);
             loseStamina();
         }
     }
+    IEnumerator ExampleCoroutine()
+    {
+        coroutineStarted = true;
+        animator.SetBool("IsShooting", true);
+        yield return new WaitForSeconds((float)0.4);
+        Instantiate(bullet, firepoint.position, firepoint.rotation);
+        yield return new WaitForSeconds((float)0.3);
+        animator.SetBool("IsShooting", false);
+        //yield return new WaitForSeconds(waitBetweenShoot);
+        coroutineStarted = false;
+    }
 
+     IEnumerator death()
+    {   
+        isdead=true;
+        Instantiate(deathParticles, transform.position, transform.rotation);
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds((float)1);
+        SceneManager.LoadScene("LevelPurple", LoadSceneMode.Single);
+    }
     public void AttackSlash()
     {
         if(hasStamina)
         {
             animator.SetBool("IsSlashing", true);
+            animator.Play("AmoutiSlash");
             loseStamina();
         }
     }
@@ -196,4 +243,12 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D (Collider2D collision)
+    {
+        if(collision.GetComponent<pit>() != null)
+        {
+            transform.position = new Vector3(1.0f, 1.0f, 1.0f);
+        }
+
+    }
 }

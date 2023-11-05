@@ -6,23 +6,33 @@ using UnityEngine.SceneManagement;
 public class door1Script : MonoBehaviour
 {
     public GameObject interactE;
-    private void  OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            interactE.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E)) 
-            {
-                SceneManager.LoadScene("Door1Scene");
-            }
-        }
-    }
+    private bool isInteracting = false;
 
-    private void  OnTriggerExit2D(Collider2D collision)
+private void OnTriggerStay2D(Collider2D collision)
+{
+    if (collision.gameObject.CompareTag("Player"))
     {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            interactE.SetActive(false);
-        }
+        isInteracting = true;
+        interactE.SetActive(true);
     }
+}
+
+private void OnTriggerExit2D(Collider2D collision)
+{
+    if (collision.gameObject.CompareTag("Player"))
+    {
+        isInteracting = false;
+        interactE.SetActive(false);
+    }
+}
+
+private void Update()
+{
+    if (isInteracting && Input.GetKeyDown(KeyCode.E))
+    {
+        Debug.Log("levelpurple");
+        SceneManager.LoadScene("LevelPurple");
+    }
+}
+
 }

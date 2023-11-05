@@ -76,7 +76,7 @@ public class EnemyScript : MonoBehaviour
              if (right) GetComponent<Rigidbody2D>().AddForce(transform.right * thrust, ForceMode2D.Impulse); 
              if (left) GetComponent<Rigidbody2D>().AddForce(-transform.right * thrust, ForceMode2D.Impulse); 
              Invoke("FalseCollision", 0.25f);
-             animator.Play("Enemy_Idle");
+             animator.Play("Enemy_attack");
         }
     }
 

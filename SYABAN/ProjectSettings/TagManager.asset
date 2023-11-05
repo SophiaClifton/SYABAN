@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Weapon
+  - Wall
+  - Turret
+  - PitDeath
   layers:
   - Default
   - TransparentFX
@@ -49,6 +52,9 @@ TagManager:
   - name: Background 3
     uniqueID: 1336289005
     locked: 0
+  - name: clouds
+    uniqueID: 675565177
+    locked: 0
   - name: Background 2
     uniqueID: 1364176881
     locked: 0
@@ -81,4 +87,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1436106731
+    locked: 0
+  - name: PauseMenu
+    uniqueID: 2542210915
     locked: 0
