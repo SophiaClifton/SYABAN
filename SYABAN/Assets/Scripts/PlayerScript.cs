@@ -60,7 +60,15 @@ public class PlayerScript : MonoBehaviour
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             }
-
+            if (IsGrounded())
+            {
+                animator.SetBool("IsJumping", false);
+            }
+            else
+            {
+                Debug.Log("Jumpy jump reached");
+                animator.SetBool("IsJumping", true);
+            }
             animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
             if (Input.GetButtonDown("Fire1") && HasStamina)
             {

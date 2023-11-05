@@ -5193,25 +5193,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 178731916}
     - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
-      propertyPath: hudData
-      value: 
-      objectReference: {fileID: 11400000, guid: 12b6c9a1df847244f9831f1acf6feb56, type: 2}
-    - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
-      propertyPath: stamina
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4403885405860635227, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: staminaIMG
       value: 
       objectReference: {fileID: 1852174733}
-    - target: {fileID: 6246307504675438144, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.156
-      objectReference: {fileID: 0}
     - target: {fileID: 8668345230252256201, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
       propertyPath: m_Name
       value: Player
