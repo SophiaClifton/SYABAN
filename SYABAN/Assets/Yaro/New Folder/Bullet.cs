@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D rb;
     private EnemyHealth enemy;
     private InteractableButton button;
+    public GameObject particles;
     public int time = 5;
     // Start is called before the first frame update
     void Start()
@@ -42,8 +43,9 @@ Debug.Log("Button " + button);
             }
             
         }
-        
-        if(collision.GetComponent<Shooting>() != null){
+
+        if(collision.GetComponent<Shooting>() == null){
+            Instantiate(particles, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

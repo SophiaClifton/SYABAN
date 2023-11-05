@@ -28,8 +28,10 @@ public class Shooting : MonoBehaviour
       IEnumerator ExampleCoroutine()
     {   coroutineStarted = true;
         animator.SetBool("isShooting",true);
+        
+        yield return new WaitForSeconds((float)0.4);
         Instantiate(BulletPrefab, firepoint.position, firepoint.rotation);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds((float)0.3);
         animator.SetBool("isShooting",false);
         yield return new WaitForSeconds(waitBetweenShoot);
         coroutineStarted = false;
