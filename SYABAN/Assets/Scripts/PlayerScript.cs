@@ -52,6 +52,14 @@ public class PlayerScript : MonoBehaviour
             animator.SetBool("IsShooting", false);
             isShooting = false;
         }
+        if (Input.GetButtonDown("Fire2") && HasStamina)
+        {
+            AttackSlash();
+        }
+        if (Input.GetButtonUp("Fire2"))
+        {
+            animator.SetBool("IsSlashing", false);
+        }
 
 
 
@@ -103,6 +111,10 @@ public class PlayerScript : MonoBehaviour
         
         Instantiate(bullet, firepoint.position,firepoint.rotation);
      
+    }
+    public void AttackSlash()
+    {
+        animator.SetBool("IsSlashing", true);
     }
 
 }
