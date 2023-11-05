@@ -8,6 +8,7 @@ public class PressurePlate : Interactable
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public override void Interact() {
@@ -25,12 +26,14 @@ public class PressurePlate : Interactable
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.GetComponent<Box>() != null) {
+            spriteRenderer.sprite = activeSprite;
             linkedObstacle.Activate();
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.GetComponent<Box>() != null) {
+            spriteRenderer.sprite = inactiveSprite;
             linkedObstacle.Deactivate();
         }
     }

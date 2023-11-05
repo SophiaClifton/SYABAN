@@ -6,8 +6,11 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     [SerializeField] protected Obstacle linkedObstacle;
+    [SerializeField] protected Sprite inactiveSprite;
+    [SerializeField] protected Sprite activeSprite;
     public bool interact;
     public bool stopInteract;
+    protected SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
