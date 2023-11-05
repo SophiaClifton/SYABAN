@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -13,8 +14,9 @@ public class PlayerScript : MonoBehaviour
     public Image staminaIMG; 
     public float staminaWidth;
     public hudDATA hudData;
+    private bool isdead = false;
     [SerializeField] private float health;
-    
+    [SerializeField] private GameObject deathParticles;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed = 8f;
     [SerializeField] private float jumpingPower = 16f;
@@ -91,6 +93,10 @@ public class PlayerScript : MonoBehaviour
                 
             }
         }
+
+        if(health <=0 && !isdead){
+             StartCoroutine(death());
+        }
     }
 
     void FixedUpdate()
@@ -153,6 +159,16 @@ public class PlayerScript : MonoBehaviour
         animator.SetBool("IsShooting", false);
         //yield return new WaitForSeconds(waitBetweenShoot);
         coroutineStarted = false;
+    }
+
+     IEnumerator death()
+    {   
+        isdead=true;
+        Instantiate(deathParticles, transform.position, transform.rotation);
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds((float)1);
+        SceneManager.LoadScene("LevelPurple", LoadSceneMode.Single);
     }
     public void AttackSlash()
     {
