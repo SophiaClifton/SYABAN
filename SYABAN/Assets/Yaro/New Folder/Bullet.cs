@@ -42,8 +42,10 @@ Debug.Log("Button " + button);
             }
             
         }
-
-        Destroy(gameObject);
+        
+        if(collision.GetComponent<Shooting>() != null){
+            Destroy(gameObject);
+        }
     }
    
 }

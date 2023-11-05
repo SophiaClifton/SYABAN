@@ -29,7 +29,7 @@ public class Shooting : MonoBehaviour
     {   coroutineStarted = true;
         animator.SetBool("isShooting",true);
         Instantiate(BulletPrefab, firepoint.position, firepoint.rotation);
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);  
+        yield return new WaitForSeconds(1);
         animator.SetBool("isShooting",false);
         yield return new WaitForSeconds(waitBetweenShoot);
         coroutineStarted = false;
@@ -82,16 +82,10 @@ public class Shooting : MonoBehaviour
         health--;
         if(health <= 0)
         {
-            animator.SetBool("isShooting",true);
             Instantiate(particles, transform.position, transform.rotation);
-            waitForAnim(animator.GetCurrentAnimatorStateInfo(0).length);
             Destroy(gameObject);
         }
         
-    }
-    IEnumerator waitForAnim(float time){
-        yield return new WaitForSeconds(time);  
-        animator.SetBool("isShooting",false);
     }
 
     }
