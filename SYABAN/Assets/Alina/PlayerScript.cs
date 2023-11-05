@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(PlayerSound))]
 public class PlayerScript : MonoBehaviour
 {
     
@@ -35,6 +37,10 @@ public class PlayerScript : MonoBehaviour
     
     private bool hasStamina = true;//use for determining if player can shoot /hit
 
+    [SerializeField] float walkInterval = 0.2f;
+    private float walkTimer = 0;
+    PlayerSound playerSound;
+
     public bool coroutineStarted;
     public bool isJumping;
     // Start is called before the first frame update
@@ -43,6 +49,7 @@ public class PlayerScript : MonoBehaviour
         HPWidth = HP.rectTransform.rect.width;
         staminaWidth = staminaIMG.rectTransform.rect.width;
         StartCoroutine(RegainStaminaOverTime());
+        playerSound = GetComponent<PlayerSound>();
     }
 
     // Update is called once per frame
@@ -93,6 +100,16 @@ public class PlayerScript : MonoBehaviour
                 
             }
         }
+        if (IsGrounded() && math.abs(rb.velocity.x) > 0.05f) {
+            walkTimer += Time.deltaTime;
+            if (walkTimer >= walkInterval) {
+                playerSound.PlayWalk();
+                walkTimer = 0;
+            }
+        } else {
+            walkTimer = walkInterval;
+        }
+
 
         if(health <=0 && !isdead){
              StartCoroutine(death());
