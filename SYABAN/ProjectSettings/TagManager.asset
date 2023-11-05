@@ -43,20 +43,35 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: Sky
+    uniqueID: 3492359003
+    locked: 0
+  - name: Background 3
     uniqueID: 1336289005
+    locked: 0
+  - name: Background 2
+    uniqueID: 1364176881
+    locked: 0
+  - name: Background 1
+    uniqueID: 3191948339
     locked: 0
   - name: Middleground
     uniqueID: 2051186441
     locked: 0
-  - name: Foreground
-    uniqueID: 2896605333
+  - name: Boxes
+    uniqueID: 2895948199
     locked: 0
   - name: Folliage
     uniqueID: 2919854729
     locked: 0
   - name: Character
     uniqueID: 2916599153
+    locked: 0
+  - name: Interactables
+    uniqueID: 2100920077
+    locked: 0
+  - name: Foreground
+    uniqueID: 2896605333
     locked: 0
   - name: UI
     uniqueID: 1436106731
