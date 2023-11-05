@@ -10,18 +10,19 @@ public class door3Script : MonoBehaviour
     public GameObject obj12;
     private bool isInteracting = false;
     public hudDATA hudData;
-    int keys = KeyManager.Instance.keyCount;
+    int purplekeys = KeyManager.Instance.purplekeyCount;
+    int greenkeys = KeyManager.Instance.greenkeyCount;
 
 private void OnTriggerStay2D(Collider2D collision)
 {
     if (collision.gameObject.CompareTag("Player"))
     {
-        if(keys==2)
+        if(purplekeys>=1 &&greenkeys>=1)
         {
             isInteracting = true;
             interactE.SetActive(true);
         }
-        else if(keys==1)
+        else if(purplekeys>=1 || greenkeys>=1)
         {
             obj12.SetActive(true);
         }

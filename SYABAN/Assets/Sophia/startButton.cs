@@ -15,5 +15,8 @@ public class startButton : MonoBehaviour
         Time.timeScale = 1f;
         hudData.active = true;
         hudData.startOfGame=false;
+        KeyManager.Instance.startgame=false;
+        
+
     }
 }

@@ -11,7 +11,7 @@ public class GameManagerScript : MonoBehaviour
         InitializeGame();
         if(hudData.startOfGame)
         {
-            mainMenu.SetActive(true);
+            //mainMenu.SetActive(true);
         }
         
     }

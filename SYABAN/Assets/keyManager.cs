@@ -3,7 +3,9 @@ using UnityEngine;
 public class KeyManager : MonoBehaviour
 {
     public static KeyManager Instance;
-    public int keyCount = 0;
+    public int purplekeyCount = 0;
+    public int greenkeyCount = 0;
+    public bool startgame =true;
 
     private void Awake()
     {
