@@ -2134,6 +2134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hudData: {fileID: 11400000, guid: 12b6c9a1df847244f9831f1acf6feb56, type: 2}
   mainMenu: {fileID: 474574656}
+  pauseMenu: {fileID: 1457503024}
 --- !u!4 &601800007
 Transform:
   m_ObjectHideFlags: 0
@@ -2863,6 +2864,11 @@ SpriteRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2509187118417593530, guid: 8dd819aee9ab0634bb8c0a8fa42f7c7b, type: 3}
   m_PrefabInstance: {fileID: 474545702}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1457503024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 311709791822985462, guid: 57b6ed6d03bdea249869876db3ee634b, type: 3}
+  m_PrefabInstance: {fileID: 174364991451916508}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1489127406
 GameObject:
@@ -7381,6 +7387,10 @@ PrefabInstance:
     - target: {fileID: 311709791822985462, guid: 57b6ed6d03bdea249869876db3ee634b, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 311709791822985462, guid: 57b6ed6d03bdea249869876db3ee634b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 815000942554724253, guid: 57b6ed6d03bdea249869876db3ee634b, type: 3}
       propertyPath: m_Camera
