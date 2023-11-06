@@ -10,7 +10,8 @@ public class greenKeyScript : MonoBehaviour
 {
     if (collision.gameObject.CompareTag("Player"))
     {
-        PlayerPrefs.SetInt("level2complete", 1);
+        Time.timeScale = 1f;
+        KeyManager.Instance.greenkeyCount++;
         SceneManager.LoadScene("SophiaScene");
     }
 }

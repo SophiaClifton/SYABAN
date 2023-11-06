@@ -9880,6 +9880,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7944526873140081550, guid: 94037f0801b6b6444800bf92b23a4761, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 826666638594585029, guid: 94037f0801b6b6444800bf92b23a4761, type: 3}
       propertyPath: m_Name
       value: Keygreen (1)
@@ -9890,7 +9894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2287317130250502663, guid: 94037f0801b6b6444800bf92b23a4761, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 110.41849
+      value: 108.43
       objectReference: {fileID: 0}
     - target: {fileID: 2287317130250502663, guid: 94037f0801b6b6444800bf92b23a4761, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10669,6 +10673,10 @@ PrefabInstance:
     - target: {fileID: 6123190999705806441, guid: fa2818dd30624564fbc85bb08f7816d9, type: 3}
       propertyPath: m_Name
       value: keypurple
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123190999705806441, guid: fa2818dd30624564fbc85bb08f7816d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
