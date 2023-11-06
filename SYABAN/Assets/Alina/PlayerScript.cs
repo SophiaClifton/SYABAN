@@ -190,7 +190,7 @@ if (keyManager != null && keyManager.startgame != true) {
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds((float)1);
-        SceneManager.LoadScene("LevelPurple", LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
     public void AttackSlash()
     {
