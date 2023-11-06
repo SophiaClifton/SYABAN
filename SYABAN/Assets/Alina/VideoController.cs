@@ -21,6 +21,9 @@ public class VideoController : MonoBehaviour
 
     private void OnVideoEnd(VideoPlayer vp)
     {
+        KeyManager.Instance.purplekeyCount=0;
+        KeyManager.Instance.greenkeyCount=0;
+        
         // Load the specified scene when the video ends.
         SceneManager.LoadScene(sceneToLoad);
     }
