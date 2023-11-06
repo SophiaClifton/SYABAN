@@ -22783,6 +22783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2010349538}
+  - component: {fileID: 2010349539}
   m_Layer: 0
   m_Name: Mountains Back
   m_TagString: Untagged
@@ -22807,6 +22808,20 @@ Transform:
   - {fileID: 2018206843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2010349539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010349536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e52d7c27b9a6a42838ea91d1980753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmountOfParallax: 0.95
+  MainCamera: {fileID: 519420031}
 --- !u!1 &2016034293
 GameObject:
   m_ObjectHideFlags: 0
@@ -23016,6 +23031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2061683996}
+  - component: {fileID: 2061683997}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -23043,6 +23059,20 @@ Transform:
   - {fileID: 719582717}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2061683997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061683994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e52d7c27b9a6a42838ea91d1980753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmountOfParallax: -1
+  MainCamera: {fileID: 519420031}
 --- !u!1001 &2086093740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23129,6 +23159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2097025247}
+  - component: {fileID: 2097025248}
   m_Layer: 0
   m_Name: GameObject (2)
   m_TagString: Untagged
@@ -23164,6 +23195,20 @@ Transform:
   - {fileID: 830615706}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2097025248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097025245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e52d7c27b9a6a42838ea91d1980753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmountOfParallax: 0.9
+  MainCamera: {fileID: 519420031}
 --- !u!1 &2100872956
 GameObject:
   m_ObjectHideFlags: 0
