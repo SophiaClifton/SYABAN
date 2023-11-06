@@ -72,7 +72,7 @@ public class Bullet : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerScript>().TakeDamage(20);
+            collision.gameObject.GetComponent<PlayerScript>().TakeDamage(10);
         }
     }
    
