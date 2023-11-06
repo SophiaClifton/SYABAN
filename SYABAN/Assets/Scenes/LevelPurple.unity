@@ -22166,6 +22166,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1622044963}
     m_Modifications:
+    - target: {fileID: 846887565092112730, guid: 8b65b5591e66ec84094cf33f75b72ebf, type: 3}
+      propertyPath: linkedObstacle
+      value: 
+      objectReference: {fileID: 1456944078}
     - target: {fileID: 3815993781990135917, guid: 8b65b5591e66ec84094cf33f75b72ebf, type: 3}
       propertyPath: m_Name
       value: Pressure Plate
@@ -22496,6 +22500,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3421121251353534788, guid: b5132a12bb275f04085176633d038b0b, type: 3}
   m_PrefabInstance: {fileID: 1456944076}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1456944078 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3511195944429645378, guid: b5132a12bb275f04085176633d038b0b, type: 3}
+  m_PrefabInstance: {fileID: 1456944076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f6a2f16e046114ea20c6a0c6c246c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1469860523
 PrefabInstance:
   m_ObjectHideFlags: 0

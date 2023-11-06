@@ -23,42 +23,39 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hudData.active)
+        if(health <=0)
         {
-            if(health <=0)
-            {
-                Destroy(gameObject);
-            }
-            range = Vector2.Distance(transform.position, target.position);
-            if(range < minDistance)
-            {
-                if (!targetCollision)
-                {
-
-                    //get position of the player
-                    transform.LookAt(target.position);
-                    if(target.position.x> gameObject.transform.position.x)
-                    {
-                        gameObject.transform.localScale = new Vector3(1f,1f,1f);
-                    }
-                    else if(target.position.x< gameObject.transform.position.x)
-                    {
-                        gameObject.transform.localScale = new Vector3(-1f,1f,1f);
-                    }
-                    else {}
-                    //correct rotation
-                    transform.Rotate(new Vector3(0,-90,0), Space.Self);
-                    transform.Translate(new Vector3(speed*Time.deltaTime,0,0));
-                    animator.Play("Dog_run");
-                }
-            }
-            else{
-                Invoke("FalseCollision", 0.25f);
-                animator.Play("Dog_idle");
-                }
-
-            transform.rotation= Quaternion.identity;
+            Destroy(gameObject);
         }
+        range = Vector2.Distance(transform.position, target.position);
+        if(range < minDistance)
+        {
+            if (!targetCollision)
+            {
+
+                //get position of the player
+                transform.LookAt(target.position);
+                if(target.position.x> gameObject.transform.position.x)
+                {
+                    gameObject.transform.localScale = new Vector3(1f,1f,1f);
+                }
+                else if(target.position.x< gameObject.transform.position.x)
+                {
+                    gameObject.transform.localScale = new Vector3(-1f,1f,1f);
+                }
+                else {}
+                //correct rotation
+                transform.Rotate(new Vector3(0,-90,0), Space.Self);
+                transform.Translate(new Vector3(speed*Time.deltaTime,0,0));
+                animator.Play("Dog_run");
+            }
+        }
+        else{
+            Invoke("FalseCollision", 0.25f);
+            animator.Play("Dog_idle");
+            }
+
+        transform.rotation= Quaternion.identity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
